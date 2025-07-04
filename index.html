@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Equipo - Editor de Texto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Editor de Texto - Web Equipo</h1>
+        </header>
+
+        <nav class="menu-bar">
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleMenu('fileMenu')">Archivo</button>
+                <div id="fileMenu" class="dropdown-menu">
+                    <button onclick="newDocument()">Nuevo</button>
+                    <button onclick="openDocument()">Abrir</button>
+                    <button onclick="saveDocument()">Guardar</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleMenu('editMenu')">Editar</button>
+                <div id="editMenu" class="dropdown-menu">
+                    <button onclick="undoAction()" id="undoBtn">Deshacer</button>
+                    <button onclick="redoAction()" id="redoBtn">Rehacer</button>
+                    <hr>
+                    <button onclick="cutText()" id="cutBtn">Cortar</button>
+                    <button onclick="copyText()" id="copyBtn">Copiar</button>
+                    <button onclick="pasteText()" id="pasteBtn">Pegar</button>
+                    <hr>
+                    <button onclick="selectAllText()">Seleccionar Todo</button>
+                    <button onclick="findText()">Buscar</button>
+                    <button onclick="replaceText()">Reemplazar</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleMenu('formatMenu')">Formato</button>
+                <div id="formatMenu" class="dropdown-menu">
+                    <button onclick="formatBold()">Negrita</button>
+                    <button onclick="formatItalic()">Cursiva</button>
+                    <button onclick="formatUnderline()">Subrayado</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="editor-area">
+            <div class="toolbar">
+                <button onclick="undoAction()" title="Deshacer">↶</button>
+                <button onclick="redoAction()" title="Rehacer">↷</button>
+                <span class="separator">|</span>
+                <button onclick="cutText()" title="Cortar">✂</button>
+                <button onclick="copyText()" title="Copiar">📋</button>
+                <button onclick="pasteText()" title="Pegar">📄</button>
+                <span class="separator">|</span>
+                <button onclick="formatBold()" title="Negrita"><strong>B</strong></button>
+                <button onclick="formatItalic()" title="Cursiva"><em>I</em></button>
+                <button onclick="formatUnderline()" title="Subrayado"><u>U</u></button>
+            </div>
+
+            <textarea id="textEditor" placeholder="Comienza a escribir aquí..."></textarea>
+        </main>
+
+        <footer>
+            <div class="status-bar">
+                <span id="wordCount">Palabras: 0</span>
+                <span id="charCount">Caracteres: 0</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal para buscar -->
+    <div id="findModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeFindModal()">&times;</span>
+            <h3>Buscar</h3>
+            <input type="text" id="findInput" placeholder="Texto a buscar">
+            <button onclick="performFind()">Buscar</button>
+        </div>
+    </div>
+
+    <!-- Modal para reemplazar -->
+    <div id="replaceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeReplaceModal()">&times;</span>
+            <h3>Buscar y Reemplazar</h3>
+            <input type="text" id="replaceFind" placeholder="Texto a buscar">
+            <input type="text" id="replaceWith" placeholder="Reemplazar con">
+            <button onclick="performReplace()">Reemplazar</button>
+            <button onclick="performReplaceAll()">Reemplazar Todo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
