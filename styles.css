@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+/* Menu Bar Styles */
+.menu-bar {
+    background-color: #34495e;
+    display: flex;
+    border-bottom: 1px solid #2c3e50;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+    background-color: #3498db;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    z-index: 1000;
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu button:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-menu button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.dropdown-menu hr {
+    margin: 5px 0;
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+/* Toolbar Styles */
+.toolbar {
+    background-color: #ecf0f1;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.toolbar button {
+    padding: 8px 12px;
+    border: 1px solid #bdc3c7;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.toolbar button:hover {
+    background-color: #3498db;
+    color: white;
+    border-color: #2980b9;
+}
+
+.toolbar .separator {
+    color: #bdc3c7;
+    margin: 0 5px;
+}
+
+/* Editor Area */
+.editor-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#textEditor {
+    flex: 1;
+    border: none;
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+    font-family: 'Courier New', monospace;
+}
+
+#textEditor:focus {
+    background-color: #fefefe;
+}
+
+/* Footer and Status Bar */
+footer {
+    background-color: #ecf0f1;
+    border-top: 1px solid #ddd;
+}
+
+.status-bar {
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: #e74c3c;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.modal-content button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px 5px 0 0;
+    font-size: 14px;
+}
+
+.modal-content button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 0;
+        min-height: 100vh;
+    }
+    
+    .menu-bar {
+        flex-wrap: wrap;
+    }
+    
+    .toolbar {
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+    
+    .toolbar button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    
+    .status-bar {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+}
+
+/* Accessibility */
+button:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.dropdown-menu button:focus {
+    background-color: #e8f4fd;
+    outline: 1px solid #3498db;
+}
